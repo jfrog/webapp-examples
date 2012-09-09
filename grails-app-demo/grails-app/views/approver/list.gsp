@@ -10,18 +10,20 @@
 <html>
 <head>
     <title>Unapproved Artifacts</title>
-    <meta name="layout" content="main" />
+    <meta name="layout" content="main"/>
 
 </head>
 
 <body>
 <h1>Unapproved Artifacts</h1>
 <g:form name="approve" action="list">
-    <g:select name="pendingArtifacts"
-              from="${pendingArtifacts}"
-              size="${pendingArtifacts.size()}" multiple="yes"/>
+    <g:if test="${pendingArtifacts.size > 0}">
+        <g:select name="pendingArtifacts"
+                  from="${pendingArtifacts}"
+                  size="${pendingArtifacts.size()}" multiple="yes"/>
+    </g:if>
     <br>
-    <g:submitButton value="Approve" name="approve"/>
+    <g:submitButton value="${pendingArtifacts.size > 0 ? 'Approve' : 'Check Again'}" name="approve"/>
 </g:form>
 </body>
 </html>
