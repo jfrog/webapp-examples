@@ -22,6 +22,9 @@
                   from="${pendingArtifacts}"
                   size="${pendingArtifacts.size()}" multiple="yes"/>
     </g:if>
+    <g:else>
+        <p>Nothing's here!</p>
+    </g:else>
     <br>
     <g:submitButton value="${pendingArtifacts.size > 0 ? 'Approve' : 'Check Again'}" name="approve"/>
 </g:form>
